@@ -11,7 +11,7 @@ function MovieCard({ movie, selectMovie }) {
             <Title>{movie.title}</Title>
             <VoteAverage>{movie.vote_average}</VoteAverage>
         </MovieMainItem>
-    )
+    );
 }
 
 export default MovieCard;
