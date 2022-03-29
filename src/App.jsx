@@ -14,10 +14,22 @@ function App() {
   const [selectMovie, setSelectMovie] = useState([]);
   // const [tvs, setTv] = useState([]);
 
+  // const fetchMovies = async (search) => {
+  //   const type = search ? 'search' : 'discover'
+  //   const { data: { results } } = await
+  //     axios.get(`${API_URL}/${type}/movie/?api_key=${process.env.REACT_APP_MOVIE_API_KEY}&language=ru&query=${search}`);
+  //   setSelectMovie(results[0])
+  //   setMovies(results)
+  // };
+
   const fetchMovies = async (search) => {
     const type = search ? 'search' : 'discover'
-    const { data: { results } } = await
-      axios.get(`${API_URL}/${type}/movie/?api_key=${process.env.REACT_APP_MOVIE_API_KEY}&language=ru&query=${search}`);
+    const { data: { results } } = await axios.get(`${API_URL}/${type}/movie`, {
+      params: {
+        api_key: process.env.REACT_APP_MOVIE_API_KEY,
+        query: search,
+      }
+    });
     setSelectMovie(results[0])
     setMovies(results)
   };
@@ -69,3 +81,4 @@ function App() {
 }
 
 export default App;
+
