@@ -1,13 +1,12 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 import axios from 'axios';
-import MovieCard from './components/MovieCard';
-import Form from './components/Form';
+import MovieCard from './components/movie-card/MovieCard';
+import MovieInfo from './components/movie-info/MovieInfo';
+import Form from './components/form/Form';
+import { API_URL } from './const';
 
 function App() {
-
-  const API_URL = 'https://api.themoviedb.org/3';
-  const IMAGE_PATH = 'https://image.tmdb.org/t/p/original/';
 
   const [movies, setMovies] = useState([]);
   const [search, setSearch] = useState([]);
@@ -37,14 +36,7 @@ function App() {
   return (
     <div className='app'>
       <Form searchMovies={searchMovies} setSearch={setSearch} />
-      <div className='movie__wrapper'>
-        <div className='movie__wrapper-content' style={{ backgroundImage: `url(${IMAGE_PATH}${selectMovie.backdrop_path})` }}>
-          <div className='movie__wrapper-content-text'>
-            <h1 className='movie__wrapper-content-title'>{selectMovie.title}</h1>
-            <p className='movie__wrapper-content-intro'>{selectMovie.overview}</p>
-          </div>
-        </div>
-      </div>
+      <MovieInfo selectMovie={selectMovie} />
       <div className='movie__main'>
         {movies.map(movie => (
           <MovieCard

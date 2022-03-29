@@ -7,10 +7,6 @@
   flex-wrap: wrap;
   justify-content: space-between;
 }
-.movie__main-item {
-  width: 223px;
-  margin:  12px 0;
-}
 .movie__main-img{
   width: 223px;
   border-radius: 3px;
@@ -44,4 +40,14 @@
 .movie__wrapper-content-intro {
   color: #fff;
   font-size: 18px;
+}
+
+@media (max-width: 880px) {
+  .movie__wrapper-content-text {
+    width: 90%;
+    padding: 32px;
+  }
+  .movie__main-img{
+    width: 160px;
+  }
 }
