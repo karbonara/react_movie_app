@@ -3,7 +3,7 @@ import './App.css';
 import axios from 'axios';
 import MovieCard from './components/movie-card/MovieCard';
 import MovieInfo from './components/movie-info/MovieInfo';
-import Tv from './components/tv/tv';
+// import Tv from './components/tv/tv';
 import Form from './components/form/Form';
 import { API_URL } from './const';
 
@@ -12,7 +12,7 @@ function App() {
   const [movies, setMovies] = useState([]);
   const [search, setSearch] = useState([]);
   const [selectMovie, setSelectMovie] = useState([]);
-  const [tvs, setTv] = useState([]);
+  // const [tvs, setTv] = useState([]);
 
   const fetchMovies = async (search) => {
     const type = search ? 'search' : 'discover'
@@ -23,22 +23,22 @@ function App() {
   };
 
 
-  const fetchsTv = async (search) => {
-    const type = search ? 'search' : 'discover'
-    const { data: { results } } = await
-      axios.get(`${API_URL}/${type}/tv/?api_key=${process.env.REACT_APP_MOVIE_API_KEY}&language=ru`);
-    setTv(results)
-  };
+  // const fetchsTv = async (search) => {
+  //   const type = search ? 'search' : 'discover'
+  //   const { data: { results } } = await
+  //     axios.get(`${API_URL}/${type}/tv/?api_key=${process.env.REACT_APP_MOVIE_API_KEY}&language=ru`);
+  //   setTv(results)
+  // };
 
   useEffect(() => {
     fetchMovies()
-    fetchsTv()
+    // fetchsTv()
   }, []);
 
   const searchMovies = (evt) => {
     evt.preventDefault()
     fetchMovies(search)
-    fetchsTv(search)
+    // fetchsTv(search)
   }
 
   return (
@@ -57,12 +57,12 @@ function App() {
       </div>
       <h1 className='name'>Сериалы</h1>
       <div className='movie__main'>
-        {tvs.map(tv => (
+        {/* {tvs.map(tv => (
           <Tv
             key={tv.id}
             tv={tv}
           />
-        ))}
+        ))} */}
       </div>
     </div>
   );
