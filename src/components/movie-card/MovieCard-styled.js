@@ -2,10 +2,11 @@ import styled from 'styled-components'
 
 export const MovieMainItem = styled.div`
     width: 223px;
-    margin:  12px 0;
+    margin: 12px 20px;
     position: relative;
     @media (max-width: 880px) {
-        width: 160px;
+        width: 155px;
+        margin: 12px 4px;
     }
 `;
 export const Title = styled.h3`

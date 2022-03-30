@@ -9,6 +9,7 @@ background: #484848;
 color: #fff;
 border-radius: 3px;
 border: none;
+box-sizing: border-box;
 `;
 export const Button = styled.button`
 width: 120px;
@@ -21,4 +22,5 @@ border: none;
 color: #fff;
 font-weight: 900;
 border-radius: 3px;
+box-sizing: border-box;
 `;
